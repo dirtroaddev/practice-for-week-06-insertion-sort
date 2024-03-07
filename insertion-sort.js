@@ -1,25 +1,32 @@
 // Insertion Sort out-of-place
 // Do not modify the original array
 function insertionSort(arr) {
-  /*
-  Pseudocode:
+  let newArr = [...arr]; // Copy of the original array to work with
+  let sorted = []; // The array that will store the sorted elements
 
-  Copy the original array
-  Create an array to store the sorted values
-  While the array is not empty:
-  - make sure you have a console.log(sorted.join(',')) as your first line in the while loop
-  - Pop a value from the array
-  - Create a new spot at the end of the array with null to help with comparisons
-  - Walk through the sorted array in reverse order
-  - Check if the value to the left is smaller than the new value
-  - If so, you've reached the insertion point so exit the loop
-  - If not shift the value to the right by 1 and continue
-  - Insert the unsorted value at the break point
-  Return the sorted array
-  */
+  // Initially, log the empty 'sorted' array
+  console.log(sorted.join(','));
 
-  // Your code here
+  while (newArr.length > 0) {
+    console.log(sorted.join(','));
+    // Take the first element from newArr to simulate sorting from smallest to largest as per the failure log
+    let currentElement = newArr.shift(); // Adjusted to shift to remove from the start
+    let i;
+    for (i = sorted.length - 1; i >= 0 && sorted[i] > currentElement; i--) {
+      sorted[i + 1] = sorted[i]; // Shift elements rightward to make room for currentElement
+    }
+    sorted[i + 1] = currentElement; // Insert currentElement in its correct position
+
+    // Log the state of 'sorted' after each insertion
+    
+  }
+  
+  return sorted; // The 'sorted' array is now fully sorted
 }
+
+
+
+
 
 // In-place Insertion Sort
 // Mutates the original array
